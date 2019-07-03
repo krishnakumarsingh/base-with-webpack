@@ -1,12 +1,5 @@
-const button = document.createElement('button');
 //import _ from 'lodash';
-import './index_viewer';
-function component() {
-  const element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+import app from './app';
+import indexViewer from './index_viewer';
+$('body').css({'background': 'rgba(0,0,0,0.5)'});
+$('body').html(indexViewer());

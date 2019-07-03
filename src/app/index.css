@@ -1,4 +1,5 @@
-body {
+@import '~bootstrap/dist/css/bootstrap.min.css';
+app {
   color: red;
   padding: 0;
 }
