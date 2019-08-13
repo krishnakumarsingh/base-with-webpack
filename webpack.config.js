@@ -1,9 +1,11 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VENDOR_LIBS = ['lodash', 'jQuery', 'bootstrap'];
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
@@ -21,7 +23,17 @@ module.exports = {
         use: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      }, {
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
         test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -44,6 +56,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    }),
     new ExtractTextPlugin({filename: "style.css"}),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -56,6 +72,9 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
+    /* new HtmlWebpackPlugin({
+      template: './index.html'
+    }) */
     /* new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.js'

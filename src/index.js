@@ -1,5 +1,6 @@
-//import _ from 'lodash';
-import app from './app';
-import indexViewer from './index_viewer';
-$('body').css({'background': 'rgba(0,0,0,0.5)'});
-$('body').html(indexViewer());
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app";
+import style from "./main.scss";
+
+ReactDOM.render(<App />, document.getElementById("app"));
