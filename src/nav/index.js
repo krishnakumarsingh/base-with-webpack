@@ -11,33 +11,41 @@ class Nav extends React.Component {
   handleClick() {
     this.setState({value: 'squares'});
   }
-  
+  componentDidMount () {
+    console.log(window.Popper);
+  }
   render() {
     const navBarList = this.props.navBarList;
     const logo = navBarList.logo;
     const navList = navBarList.navList;
-    console.log(navList);
+    const navFixedClassName = "navbar ";
+    const navClassName = "fixed-top navbar-expand-lg " + this.props.navClassName;
     const navMapList = navList.map((i, j) => {
       const classNameNavList = ( j === 0 ) ?
         "nav-item active" :
         "nav-item";
-      console.log(typeof i);
-      if(typeof i !== 'object') {
+        console.log(i);
+      if(!i.navSub) {
         return (
-          <li className={classNameNavList}>
-            <a className="nav-link" href="about.html">{i}</a>
+          <li key={j} className={classNameNavList}>
+            <a className={"nav-link " + i.navClass} href={i.navHref}>
+              {i.navSrc !== '' && <span className={i.navSrc}></span>}
+              {i.navText}
+            </a>
           </li>
         );
       } else {
         return (
-          <li className="nav-item dropdown">
+          <li key={j} className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {i.mainNavList}
+              {i.navText}
             </a>
             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              {i.subList.map((i, j) => {
+              {i.subList && i.subList.length > 0 && i.subList.map((i1, j1) => {
                 return (
-                  <a className="dropdown-item" href="portfolio-1-col.html">{i}</a>
+                  <a key={j1} className="dropdown-item" href={i1.navHref}>
+                    {i1.navText}
+                  </a>
                 )
               })}
             </div>
@@ -46,7 +54,7 @@ class Nav extends React.Component {
       }
     });
     return (
-      <nav className="navbar fixed-top navbar-expand-lg fixed-top">
+      <nav kye={'navbar'} className={navFixedClassName + navClassName}>
         <div className="container">
           <a className="navbar-brand" href={logo.logoHref}>
             {logo.logoImg && <img src={logo.logoSrc} alt={logo.logoAlt} />}

@@ -1,8 +1,16 @@
 import React from "react";
 import "./index.scss";
-import "popper.js";
+import Popper from 'popper.js';
+//window.Popper = Popper;
 import "bootstrap";
 import Nav from "../nav";
+
+//import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from '../home';
+import About from '../about';
+import Services from '../services';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -10,28 +18,106 @@ class App extends React.Component {
       navBarList: {
         "logged_in":true,
         'logo': {
-            'logoText': 'Logo Text1',
+            'logoText': 'Logo Text',
             'logoSrc': 'Logo Src',
             'logoHref': 'Logo Href',
             'logoAlt': 'Logo Alt',
             'logoImg': false
           },
           'navList': [
-            'List 1',
-            'List 2',
-            'List 3',
             {
-              'mainNavList': 'Has Sub List 1',
-              'subList': ['Sub List 1', 'Sub List 2']
+              'navText': 'List 1',
+              'navSrc': 'icon',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': false
             },
             {
-              'mainNavList': 'Has Sub List 2',
-              'subList': ['Sub List 3', 'Sub List 4']
+              'navText': 'List 1',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': false
             },
-            'List 4',
             {
-              'mainNavList': 'Has Sub List 3',
-              'subList': ['Sub List 5', 'Sub List 6']
+              'navText': 'List 1',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': false
+            },
+            {
+              'navText': 'Has Sub List 1',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': true,
+              'subList': [
+                {
+                  'navText': 'Sub List 1',
+                  'navSrc': '',
+                  'navHref': 'nav Href',
+                  'navAlt': 'nav Alt',
+                  'navClass': 'nav-list',
+                  'navSub': false,
+                }, {
+                  'navText': 'Sub List 2',
+                  'navSrc': '',
+                  'navHref': 'nav Href',
+                  'navAlt': 'nav Alt',
+                  'navClass': 'nav-list',
+                  'navSub': false,
+                }
+              ]
+            },
+            {
+              'navText': 'Has Sub List 2',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': true,
+              'subList': [
+                {
+                  'navText': 'Has Sub List 1',
+                  'navSrc': '',
+                  'navHref': 'nav Href',
+                  'navAlt': 'nav Alt',
+                  'navClass': 'nav-list',
+                  'navSub': false,
+                }
+              ]
+            },
+            {
+
+              'navText': 'List 4',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': false
+            },
+            {
+              'navText': 'Has Sub List 3',
+              'navSrc': '',
+              'navHref': 'nav Href',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': true,
+              'subList': [
+                {
+                  'navText': 'Has Sub List 1',
+                  'navSrc': '',
+                  'navHref': 'nav Href',
+                  'navAlt': 'nav Alt',
+                  'navClass': 'nav-list',
+                  'navSub': false,
+                }
+              ]
             }
           ]
       },
@@ -45,19 +131,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <Nav navBarList={this.state.navBarList} />
-        {/* </header> */}
-        {/* <div class="container"> */}
-        {/* <footer class="py-5 bg-dark"> */}
-        {/* <button
-          className="square"
-          onClick={() => this.handleClick()}
-        >
-          {this.state.value}
-        </button> */}
-        {/* <Header /> */}
-      </div>
+      <Router>
+        <div>
+          {/* <Nav navBarList={this.state.navBarList} navClassName="navbar-dropdown navbar-fixed-top" /> */}
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <ul className="navbar-nav mr-auto">
+              <li><Link to={'/'} className="nav-link"> Home </Link></li>
+              <li><Link to={'/services'} className="nav-link">Services</Link></li>
+              <li><Link to={'/about'} className="nav-link">About</Link></li>
+            </ul>
+          </nav>
+          <hr />
+          <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/services' component={Services} />
+              <Route path='/about' component={About} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -8,9 +8,18 @@ const VENDOR_LIBS = ['lodash', 'jQuery', 'bootstrap'];
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  mode: 'development',
   entry: {
+    app: './src/index.js',
     bundle: './src/index.js',
     vendor: VENDOR_LIBS
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
+  watchOptions: {
+    poll: 1000 // Check for changes every second
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -55,8 +64,16 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+        jquery: "jquery/src/jquery",
+        'popper.js' : "popper.js/dist/umd/popper.js"
+    }
+  },
   plugins: [
+    //new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
+      title: 'Development',
       template: "./src/index.html",
       filename: "./index.html"
     }),
