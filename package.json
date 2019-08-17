@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "twoformat",
   "scripts": {
-    "start": "rm -rf ./dist/ && npm run build && webpack-dev-server --mode development --open --hot",
+    "start": "rm -rf ./dist/ && npm run build && webpack-dev-server --mode development --open --hot --history-api-fallback",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open",
+    "str": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/index.html dist/index.html",
+    "build:prod": "webpack -p && cp src/index.html dist/index.html"
   },
   "author": "",
   "license": "ISC",
@@ -51,6 +53,7 @@
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "tether": "^1.4.6",
     "webpack-dev-server": "^3.7.2"
