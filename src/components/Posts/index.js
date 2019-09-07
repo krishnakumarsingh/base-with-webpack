@@ -51,9 +51,13 @@ class Posts extends Component {
     this.equalHeight('.blogs-item .row', '.card-text');
     this.equalHeight('.blogs-item .row', '.card-footer');
   }
-
-  componentWillReceiveProps(nextProps) {
+  /* componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost);
+    }
+  } */
+  getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.newPost !== prevState.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     }
   }

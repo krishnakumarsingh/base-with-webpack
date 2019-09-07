@@ -1,0 +1,67 @@
+section.page-section {
+  background-color: rgb(239, 239, 239);;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .h2-head-sec {
+    font-size: 24px;
+    /* color: #333333; */
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+  }
+  .h3-head-sec {
+    font-size: 30px;
+    /* color: #333333; */
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin-bottom: 1.5625rem;
+  }
+  .brdr {
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    border-radius: 50px;
+    margin-top: 0;
+  }
+  .sec-para {
+    font-size: 15px;
+    line-height: 24px;
+    color: #999999;
+    font-weight: 400;
+    text-align: center;
+    margin: auto;
+  }
+  .base-cards .card-group {
+    padding-top: 80px;
+  }
+  .two-card {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  hr.sec-btm {
+    position: relative;
+    top: 80px;
+    margin: 0 20%;
+  }
+  &.base-footer {
+    background-color: rgb(55, 71, 79);
+    color: #fff;
+    .sec-para {
+      color: #fff;
+    }
+  }
+  .map-section {
+    padding-top: 80px;
+    > div {
+      height: 25rem;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+.base-contact {
+  padding-top: 80px;
+}

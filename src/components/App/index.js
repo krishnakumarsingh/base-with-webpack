@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import "./index.scss";
 import Popper from 'popper.js';
 //window.Popper = Popper;
-import "bootstrap";
+//import "bootstrap";
 
 import Nav from "../nav";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link, browserHistory } from 'react-router-dom';
@@ -24,18 +24,27 @@ class App extends Component {
     this.state = {
       navBarList: {
         "logged_in":true,
+        "nav_theme": '',
         'logo': {
             'logoText': 'Logo Text',
             'logoSrc': logoSrc,
-            'logoHref': 'Logo Href',
+            'logoHref': '/',
             'logoAlt': 'Logo Alt',
-            'logoImg': false
+            'logoImg': true
           },
           'navList': [
             {
               'navText': 'Home',
               'navSrc': 'icon',
               'navHref': '/',
+              'navAlt': 'nav Alt',
+              'navClass': 'nav-list',
+              'navSub': false
+            },
+            {
+              'navText': 'About us',
+              'navSrc': '',
+              'navHref': '/about',
               'navAlt': 'nav Alt',
               'navClass': 'nav-list',
               'navSub': false
@@ -49,14 +58,14 @@ class App extends Component {
               'navSub': false
             },
             {
-              'navText': 'About',
+              'navText': 'Contact us',
               'navSrc': '',
-              'navHref': '/about',
+              'navHref': '/contact',
               'navAlt': 'nav Alt',
               'navClass': 'nav-list',
               'navSub': false
             },
-            {
+            /* {
               'navText': 'Topics',
               'navSrc': '',
               'navHref': 'nav Href',
@@ -88,7 +97,7 @@ class App extends Component {
               'navAlt': 'nav Alt',
               'navClass': 'nav-list',
               'navSub': false
-            },
+            }, */
           ]
       },
       homeContent: {
@@ -99,7 +108,7 @@ class App extends Component {
             'sliderText': 'This is a description for the first slide.',
             'sliderSrc': 'http://placehold.it/1400x464'
           }, 
-          {
+          /* {
             'sliderTitle': 'Second Slid',
             'sliderText': 'This is a description for the Second slide.',
             'sliderSrc': 'http://placehold.it/2100x464'
@@ -108,7 +117,7 @@ class App extends Component {
             'sliderTitle': 'Third Slid',
             'sliderText': 'This is a description for the Third slide.',
             'sliderSrc': 'http://placehold.it/1900x464'
-          }
+          } */
         ]
       },
       value: null,

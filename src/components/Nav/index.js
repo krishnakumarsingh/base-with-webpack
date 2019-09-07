@@ -11,15 +11,49 @@ class Nav extends React.Component {
   handleClick() {
     this.setState({value: 'squares'});
   }
+
+  pageScrolled() {
+    $(window).scroll(function (event) {
+      var scroll = $(window).scrollTop();
+      if(scroll > 100) {
+        $('.navbar').addClass('nav-scrolled');
+        if ($(window).width() < 768) {
+          $('.nav-dropdown-bottom').show();
+          $('.nav-dropdown-bottom').parent().addClass('open-footer-menu');
+        }
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+          $('.open-footer-menu').removeClass('open-footer-menu');
+          $('.nav-dropdown-bottom').addClass('bottom-menu-static');
+        } else {
+          $('.nav-dropdown-bottom').addClass('bottom-menu-static');
+        }
+      } else {
+        $('.navbar').removeClass('nav-scrolled');
+        $('.nav-dropdown-bottom').hide();
+        $('.open-footer-menu').removeClass('open-footer-menu');
+      }
+    });
+  }
   componentDidMount () {
+    this.pageScrolled();
     //console.log(window.Popper);
+    $('.navbar-toggler').on('click', function() {
+      $(this).closest('.navbar').toggleClass('navbar-ham-active navbar-dark');
+      //$(this).closest('.navbar').toggleClass('navbar-dark');
+    });
   }
   render() {
     const navBarList = this.props.navBarList;
     const logo = navBarList.logo;
     const navList = navBarList.navList;
+    const navClass = '';
     const navFixedClassName = "navbar ";
-    const navClassName = "fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top " + this.props.navClassName;
+    const navDark = navBarList.nav_theme === 'dark' ? "navbar-dark bg-dark " : "navbar-dark navbar-light ";
+    if(navBarList.nav_theme !== 'dark') {
+      $('body').addClass('nav-transparent');
+    }
+    const navClassName = "fixed-top navbar-expand-lg fixed-top " + navDark + this.props.navClassName;
+    //navBarList.nav_theme
     const navMapList = navList.map((i, j) => {
       const classNameNavList = ( j === 0 ) ?
         "nav-item " :
@@ -95,7 +129,7 @@ class Nav extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              <li
+              {/* <li
                 className={"nav-item"}
               >
                 <NavLink 
@@ -106,7 +140,7 @@ class Nav extends React.Component {
                 >
                   Topics
                 </NavLink>
-              </li>
+              </li> */}
               {navMapList}
             </ul>
           </div>

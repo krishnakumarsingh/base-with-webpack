@@ -1,7 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VENDOR_LIBS = ['lodash', 'jQuery', 'bootstrap'];
@@ -56,8 +56,20 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: "[name].[hash].[ext]",
+              name: "[name].[hash:6].[ext]",
               outputPath: "imgs"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
             }
           }
         ]
