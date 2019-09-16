@@ -25,7 +25,7 @@ class MapComponent extends Component {
 
 export default GoogleApiWrapper(
   (props) => ({
-    apiKey: props.apiKey,
+    apiKey: 'GOOGLE_API_KEY',
     language: props.language,
   }
 ))(MapComponent);

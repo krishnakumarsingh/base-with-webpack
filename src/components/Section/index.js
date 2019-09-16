@@ -11,6 +11,7 @@ class Section extends React.Component {
       value: null,
       mapStyles: {width:'100%',height: '25rem'},
       mapCenter: {lat: 12.925453, lng: 77.546761},
+      mapApiKey: 'GOOGLE_API_KEY',
       mapZoom: 20,
     };
   }
