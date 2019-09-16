@@ -4,7 +4,6 @@ section.page-section {
   padding-bottom: 80px;
   .h2-head-sec {
     font-size: 24px;
-    /* color: #333333; */
     font-weight: 400;
     text-align: center;
     letter-spacing: 0;
@@ -12,7 +11,6 @@ section.page-section {
   }
   .h3-head-sec {
     font-size: 30px;
-    /* color: #333333; */
     font-weight: 700;
     text-align: center;
     letter-spacing: 0;
@@ -33,13 +31,26 @@ section.page-section {
     font-weight: 400;
     text-align: center;
     margin: auto;
+    @media screen and (max-width: 768px) {
+      text-align: justify;
+    }
   }
   .base-cards .card-group {
     padding-top: 80px;
+    & + .card-group {
+      padding-top: 40px;
+    }
+    @media screen and (max-width: 768px) {
+      & + .card-group {
+        padding-top: 0;
+      }
+    }
   }
-  .two-card {
-    max-width: 60%;
-    margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    .two-card {
+      max-width: 60%;
+      margin: 0 auto;
+    }
   }
   hr.sec-btm {
     position: relative;

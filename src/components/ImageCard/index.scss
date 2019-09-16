@@ -46,9 +46,7 @@
       background: linear-gradient(left, rgba(85, 67, 70, 0.85), rgba(69, 80, 91, 0.85)) !important;
       -webkit-transition: .2s background ease-in-out;
       transition: .2s background ease-in-out;
-      @media (min-width: 992px) {
-        font-size: 12px;
-      }
+      font-size: 12px;
     }
   }
   > a {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import './index.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/postActions';
 import Pagination from '../Pagination';
-import './index.scss';
 
 class Posts extends Component {
   constructor(props) {
@@ -102,9 +102,6 @@ class Posts extends Component {
     return y;
   }
   render() {
-    const divStyle = {
-      width: '220px'
-    };
     const { currentPage, todosPerPage, language } = this.state;
     const { posts } = this.props;
     const indexOfLastTodo = currentPage * todosPerPage;

@@ -56,7 +56,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: "[name].[hash:6].[ext]",
+              name: "[name].[hash].[ext]",
               outputPath: "imgs"
             }
           }
@@ -87,7 +87,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       title: 'Development',
       template: "./src/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
     }),
     new ExtractTextPlugin({filename: "style.css"}),
     new webpack.ProvidePlugin({

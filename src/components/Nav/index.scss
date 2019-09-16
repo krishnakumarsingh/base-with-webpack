@@ -1,4 +1,5 @@
 .navbar {
+  background: transparent;
   &.navbar-ham-active {
     .navbar-nav .nav-link {
       @media (max-width: 991px) {
@@ -9,16 +10,24 @@
       background-color: #fff;
     }
   }
-  &.nav-scrolled {
+  &.nav-scrolled,
+  &.direct-page,
+  &.navbar-ham-active {
     background: #fff;
     .navbar-nav .nav-link {
       color: #1cc8e1;
+    }
+    .icon-bar {
+      background-color: #999;
     }
   }
   .navbar-brand {
     img {
       width: 260px;
       transition: all 0.45s ease-in-out;
+      @media (max-width: 767px) {
+        width: 216px;
+      }
     }
   }
   .navbar-nav .nav-link {
@@ -48,6 +57,7 @@
   }
   .navbar-toggler {
     color: #fff;
+    outline: none;
     @media (max-width: 991px) {
       color: #ccc;
     }
@@ -61,7 +71,7 @@
 .nav-transparent {
   padding-top: 0px;
 }
-
+/* 
 footer {
   background-color: rgb(0, 0, 0);
   padding-top: 1.75rem;
@@ -80,7 +90,6 @@ footer .container {
   position: fixed;
 }
 .nav-dropdown-bottom li.nav-item {
-  /* width: 33%; */
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -99,4 +108,48 @@ footer .container {
   .nav-dropdown-bottom {
     display: none;
   }
+} */
+.direct-page.navbar {
+  box-shadow: 0px 0px 5px 0;
+  & + div {
+    padding-top: 91px;
+    @media screen and (max-width: 768px) {
+      padding-top: 80px;
+    }
+  }
+}
+.nav-scrolled-top {
+  background: #fff;
+}
+.icon-bar {
+	width: 22px; 
+	height: 2px;
+	display: block;
+	transition: all 0.2s;
+  margin-top: 4px;
+  background-color: #fff;
+}
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
 }

@@ -16,7 +16,7 @@ class Nav extends React.Component {
     $(window).scroll(function (event) {
       var scroll = $(window).scrollTop();
       if(scroll > 100) {
-        $('.navbar').addClass('nav-scrolled');
+        $('.navbar').addClass('nav-scrolled').removeClass('navbar-dark1');
         if ($(window).width() < 768) {
           $('.nav-dropdown-bottom').show();
           $('.nav-dropdown-bottom').parent().addClass('open-footer-menu');
@@ -28,7 +28,7 @@ class Nav extends React.Component {
           $('.nav-dropdown-bottom').addClass('bottom-menu-static');
         }
       } else {
-        $('.navbar').removeClass('nav-scrolled');
+        $('.navbar').removeClass('nav-scrolled').addClass('navbar-dark1');
         $('.nav-dropdown-bottom').hide();
         $('.open-footer-menu').removeClass('open-footer-menu');
       }
@@ -36,43 +36,48 @@ class Nav extends React.Component {
   }
   componentDidMount () {
     this.pageScrolled();
-    //console.log(window.Popper);
     $('.navbar-toggler').on('click', function() {
-      $(this).closest('.navbar').toggleClass('navbar-ham-active navbar-dark');
-      //$(this).closest('.navbar').toggleClass('navbar-dark');
+      $(this).closest('.navbar').toggleClass('navbar-ham-active');
     });
   }
   render() {
-    const navBarList = this.props.navBarList;
+    const { navBarList } = this.props;
     const logo = navBarList.logo;
     const navList = navBarList.navList;
     const navClass = '';
     const navFixedClassName = "navbar ";
-    const navDark = navBarList.nav_theme === 'dark' ? "navbar-dark bg-dark " : "navbar-dark navbar-light ";
+    const navDark = navBarList.nav_theme === 'dark' ? "bg-dark " : "navbar-light ";
     if(navBarList.nav_theme !== 'dark') {
       $('body').addClass('nav-transparent');
     }
-    const navClassName = "fixed-top navbar-expand-lg fixed-top " + navDark + this.props.navClassName;
+    const navClassName = "fixed-top navbar-expand-lg " + navDark + this.props.navClassName;
     //navBarList.nav_theme
     const navMapList = navList.map((i, j) => {
       const classNameNavList = ( j === 0 ) ?
         "nav-item " :
         "nav-item";
-        //console.log(i);
       if(!i.navSub) {
-        return (
-          <li key={j} className={classNameNavList}>
-            <NavLink
-              exact
-              activeClassName="active"
-              className={"nav-link " + i.navClass}
-              to={i.navHref}
-            >
-              {i.navSrc !== '' && <span className={i.navSrc}></span>}
-              {i.navText}
-            </NavLink>
-          </li>
-        );
+        if(!i.samePage) {
+          return (
+            <li key={j} className={classNameNavList}>
+              <NavLink
+                exact
+                activeClassName="active"
+                className={"nav-link " + i.navClass}
+                to={i.navHref}
+              >
+                {i.navSrc !== '' && <span className={i.navSrc}></span>}
+                {i.navText}
+              </NavLink>
+            </li>
+          );
+        } else {
+          return (
+            <li key={j} className={classNameNavList}>
+              <a className="nav-link nav-list" href={i.navHref}>{i.navText}</a>
+            </li>
+          );
+        }
       } else {
         return (
           <li key={j} className="nav-item dropdown">
@@ -112,12 +117,18 @@ class Nav extends React.Component {
     return (
       <nav kye={'navbar'} className={navFixedClassName + navClassName}>
         <div className="container">
-          <a className="navbar-brand" href={logo.logoHref}>
-            {logo.logoImg && <img src={logo.logoSrc} alt={logo.logoAlt} />}
+          <NavLink
+            exact
+            activeClassName=""
+            exact
+            to={logo.logoHref}
+            className="navbar-brand"
+          >
+            {logo.logoImg && <img src={require(`../../assets/images/${logo.logoSrc}`)} alt={logo.logoAlt} />}
             {!logo.logoImg && logo.logoText}
-          </a>
+          </NavLink>
           <button
-            className="navbar-toggler navbar-toggler-right"
+            className="navbar-toggler navbar-toggler-right collapsed"
             type="button"
             data-toggle="collapse"
             data-target="#navbarResponsive"
@@ -125,22 +136,12 @@ class Nav extends React.Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="icon-bar top-bar"></span>
+            <span className="icon-bar middle-bar"></span>
+            <span className="icon-bar bottom-bar"></span>	
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              {/* <li
-                className={"nav-item"}
-              >
-                <NavLink 
-                  className="nav-link nav-list"
-                  exact
-                  activeClassName="active"
-                  to="/topics"
-                >
-                  Topics
-                </NavLink>
-              </li> */}
               {navMapList}
             </ul>
           </div>

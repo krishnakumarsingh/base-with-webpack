@@ -10,7 +10,6 @@ class Root extends React.Component {
     };
   }
   render() {
-    //console.log(this.props);
     const match = this.props.match;
     return (
       <div className="container root">
