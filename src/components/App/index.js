@@ -7,23 +7,14 @@ import Popper from 'popper.js';
 //window.Popper = Popper;
 //import "bootstrap";
 import dataJson from '../../actions/data.json'
-import Nav from "../nav";
+import Nav from "../Nav";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link, browserHistory } from 'react-router-dom';
-import Home from '../home';
-import About from '../about';
-import Services from '../services';
 
-import GetBuyingCenterInsight from '../pages/GetBuyingCenterInsight';
-import ManagedMarketingDatabase from '../pages/ManagedMarketingDatabase';
-import CompetitiveIntelligence from '../pages/CompetitiveIntelligence';
-import DigitalMarketing from '../pages/DigitalMarketing';
-import DatabaseManagement from '../pages/DatabaseManagement';
-import WebsiteDevelopment from '../pages/WebsiteDevelopment';
-import Spin from '../Spin';
+import SubPages from '../pages/SubPages';
 import PrivacyPolicyTemplate from '../pages/PrivacyPolicyTemplate';
 import { Login, Logout, Admin } from '../Login';
 import Root from '../root';
-
+import '../../script.js';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -81,8 +72,8 @@ class App extends Component {
             path="/"
             //component={Home}
             render={(routeProps) => (
-              <Home
-                homeContent={homeContent}
+              <SubPages
+                subPages={homeContent.header}
                 headerContent={headerContent}
               />
             )} />
@@ -90,8 +81,8 @@ class App extends Component {
             path="/about"
             //component={About}
             render={(routeProps) => (
-              <About
-                aboutContent={aboutContent}
+              <SubPages
+                subPages={aboutContent.sectionData}
               />
             )}
           />
@@ -99,8 +90,8 @@ class App extends Component {
             path="/getBuyingCenterInsight"
             //component={GetBuyingCenterInsight}
             render={(routeProps) => (
-              <GetBuyingCenterInsight
-                getBuyingCenterInsight={getBuyingCenterInsight}
+              <SubPages
+                subPages={getBuyingCenterInsight}
               />
             )}
           />
@@ -108,8 +99,8 @@ class App extends Component {
             path="/managedMarketingDatabase"
             //component={ManagedMarketingDatabase}
             render={(routeProps) => (
-              <ManagedMarketingDatabase
-                managedMarketingDatabase={managedMarketingDatabase}
+              <SubPages
+                subPages={managedMarketingDatabase}
               />
             )}
           />
@@ -117,8 +108,8 @@ class App extends Component {
             path="/competitiveIntelligence"
             //component={CompetitiveIntelligence}
             render={(routeProps) => (
-              <CompetitiveIntelligence
-                competitiveIntelligence={competitiveIntelligence}
+              <SubPages
+                subPages={competitiveIntelligence}
               />
             )}
           />
@@ -126,8 +117,8 @@ class App extends Component {
             path="/digitalMarketing"
             //component={DigitalMarketing}
             render={(routeProps) => (
-              <DigitalMarketing
-                digitalMarketing={digitalMarketing}
+              <SubPages
+                subPages={digitalMarketing}
               />
             )}
           />
@@ -135,8 +126,8 @@ class App extends Component {
             path="/databaseManagement"
             //component={DatabaseManagement}
             render={(routeProps) => (
-              <DatabaseManagement
-                databaseManagement={databaseManagement}
+              <SubPages
+                subPages={databaseManagement}
               />
             )}
           />
@@ -144,17 +135,38 @@ class App extends Component {
             path="/websiteDevelopment"
             //component={WebsiteDevelopment}
             render={(routeProps) => (
-              <WebsiteDevelopment
-                websiteDevelopment={websiteDevelopment}
+              <SubPages
+                subPages={websiteDevelopment}
               />
             )}
           />
-          <Route path="/services" component={Services} />
-          <Route path="/topics" component={Root} />
-          <Route path="/login" component={Login} />
-          <Route path="/admin" component={Admin} onEnter={this.requireAuth} />
-          <Route path="/logout" component={Logout} />
-          <Route path="/privacyPolicyTemplate" component={PrivacyPolicyTemplate} />
+          <Route
+            path="/services"
+            //component={Services}
+            render={(routeProps) => (
+              <SubPages
+                subPages={"services"}
+              />
+            )}
+          />
+          <Route
+            path="/topics"
+            component={Root}
+          />
+          <Route
+            path="/login"
+            component={Login}
+          />
+          <Route
+            path="/admin"
+            component={Admin} onEnter={this.requireAuth}
+          />
+          <Route
+            path="/logout"
+            component={Logout}
+          />
+          <Route
+            path="/privacyPolicyTemplate" component={PrivacyPolicyTemplate} />
         </Router>
         {/* <ContactUs /> */}
       </div>

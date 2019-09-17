@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import ImageCard from '../ImageCard';
 import ContactUs from '../ContactUs';
-import Map from '../Map';
+import MapComponent from '../Map';
 
 class Section extends React.Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class Section extends React.Component {
           </div>
         </div>}
         {map && <div className='map-section'>
-          <Map
+          <MapComponent
             apiKey={mapApiKey}
             zoom={mapZoom}
             mapStyles = {mapStyles}

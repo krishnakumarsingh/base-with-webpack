@@ -53,20 +53,20 @@ $colours:
 48 50 49;
 
 @each $i in $colours{
-.currentPage-#{nth($i, 2)} {
-  li {
-    display: none;
+  .currentPage-#{nth($i, 2)} {
+    li {
+      display: none;
+    }
+    .not-h,
+    .page-#{nth($i, 1)},
+    .page-#{nth($i, 2)},
+    .page-#{nth($i, 3)} {
+      display: list-item;
+    }
+    .page-#{nth($i, 2)} a {
+      background-color: $pageActiveColor;
+    }
   }
-  .not-h,
-  .page-#{nth($i, 1)},
-  .page-#{nth($i, 2)},
-  .page-#{nth($i, 3)} {
-    display: list-item;
-  }
-  .page-#{nth($i, 2)} a {
-    background-color: $pageActiveColor;
-  }
-}
 }
 .custom-pagination-css li > a {width: 63px; text-align: center;}
 .custom-pagination-css li.not-h > a {width: 98px;}

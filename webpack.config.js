@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     app: './src/index.js',
     bundle: './src/index.js',
+    fontawesome: 'font-awesome/scss/font-awesome.scss',
     vendor: VENDOR_LIBS
   },
   devtool: 'inline-source-map',
@@ -43,11 +44,39 @@ module.exports = {
         ]
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader"
+        ]
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          {
+            // Adds CSS to the DOM by injecting a `<style>` tag
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            // Interprets `@import` and `url()` like `import/require()` and will resolve them
+            loader: 'css-loader'
+          },
+          {
+            // Loader for webpack to process CSS with PostCSS
+            loader: 'postcss-loader',
+            options: {
+              plugins: function () {
+                return [
+                  require('autoprefixer')
+                ];
+              }
+            }
+          },
+          {
+            // Loads a SASS/SCSS file and compiles it to CSS
+            loader: 'sass-loader'
+          }
         ]
       },
       {
