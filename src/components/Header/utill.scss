@@ -1,0 +1,20 @@
+.mt-title-4 {
+  margin-top: 4em;
+}
+.base-section-btn {
+  .btn {
+    &.btn-secondary-outline {
+      background: none;
+      border-color: #fff;
+      color: #fff;
+      &:hover {
+        color: #F1C050;
+        border-color: #F1C050;
+      }
+    }
+    color: #fff;
+  }
+}
+.text-xs-center {
+  text-align: center!important;
+}

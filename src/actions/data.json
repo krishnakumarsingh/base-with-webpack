@@ -1,13 +1,16 @@
 {
+  "pageConfig": {
+    "websiteAppClass": "formatics"
+  },
   "navBarList": {
     "logged_in":true,
     "nav_theme": "",
     "logo": {
-      "logoText": "Logo Text",
-      "logoSrc": "2formatics-h.png",
+      "logoText": "Logo",
+      "logoSrc": "logo.png",
       "logoHref": "/",
       "logoAlt": "Logo Alt",
-      "logoImg": true,
+      "logoImg": false,
       "samePage": false
     },
     "navList": [
@@ -181,6 +184,7 @@
   "headerContent": {
     "slider": [
       {
+        "carouselItemClass": "buying-center",
         "title": "Buying Center ?",
         "grid": [6, 6],
         "lead": "",
@@ -213,6 +217,7 @@
         "secDivClass": "",
         "sliderImg": "-webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%)"
       }, {
+        "carouselItemClass": "data-quality",
         "title": "Data Quality ?",
         "grid": [6, 6],
         "lead": "While many organizations boast of having good data or improving the quality of their data, we believe customer's data should be properly oriented, shorted & simplified.",
@@ -224,6 +229,7 @@
         "secDivClass": "",
         "sliderImg": "-webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%)"
       }, {
+        "carouselItemClass": "web-development",
         "title": "Web Development",
         "grid": [12, 12],
         "lead": "",

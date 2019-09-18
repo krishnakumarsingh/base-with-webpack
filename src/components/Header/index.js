@@ -12,25 +12,25 @@ class Header extends React.Component {
     const { slider } = this.props;
     const sliderList = slider.map((i, j) => {
       return (
-        <div key={j} className={`carousel-item parallax buying-center slider-${j} ${j === 0 ? 'active' : ''}`} data-img={i.sliderImg}>
+        <div key={j} className={`carousel-item parallax ${i.carouselItemClass} slider-${j} ${j === 0 ? 'active' : ''}`} data-img={i.sliderImg}>
           <div className="base-table-cell">
             <div className="container">
               <div className="row">
                 <div className={`col-md-${i.grid[0]} text-xs-center animated-text`}>
-                  <h1 className="base-section-title display-1 KaushanScript mt-title-4">{i.title}</h1>
+                  <h1 className="base-section-title KaushanScript">{i.title}</h1>
                   <p className="base-section-lead lead Montserrat">{i.lead}</p>
                   <div className="base-section-btn animated-text-2">
                     <NavLink
                       exact
                       to={`${i.btn[1]}`}
-                      className="btn btn-lg btn-secondary-outline border-white btn-secondary"
+                      className="btn btn-lg btn-secondary-outline btn-secondary"
                     >
                       {i.btn[0]}
                     </NavLink>
                   </div>
                 </div>
-                {i.ulCircle && <div className={`col-md-${i.grid[1]} ${i.secDivClass}`}>
-                  <div className={`${i.ulRes ? '' : 'carousel-buying-center-data'} col-md-${i.grid[1]}`}>
+                <div className={`col-md-${i.grid[1]} ${i.secDivClass}`}>
+                  {i.ulCircle && <div className={`${i.ulRes ? '' : 'carousel-buying-center-data'}`}>
 										<ul className={`${i.ulRes ? 'slider-responsive' : 'circle-container-buying-center'}`} data-center={i.ulCenter}>
                       {
                         i.ulList.map((i1, j1) => {
@@ -42,8 +42,9 @@ class Header extends React.Component {
                         })
                       }
 										</ul>
-									</div>
-                </div>}
+                  </div>}
+                  {i.innrHTML && i.innrHTML}
+                </div>
               </div>
             </div>
           </div>

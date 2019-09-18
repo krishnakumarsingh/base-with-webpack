@@ -1,6 +1,6 @@
 {
   "name": "twoformat",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "twoformat",
   "scripts": {
     "start": "rm -rf ./dist/ && npm run build && webpack-dev-server --mode development --open --hot --history-api-fallback",
