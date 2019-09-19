@@ -193,7 +193,6 @@
         img {
           width: 100%;
         }
-        .laptop-img,
         .ipad-img,
         .iphone-img {
           position: absolute;
@@ -214,6 +213,10 @@
       &.active {
         .slider-responsive {
           display: block;
+          @media screen and (min-width: 992px) {
+            width: 75%;
+            margin: auto;
+          }
         }
         .img-responsive-design {
           .iphone-img,
