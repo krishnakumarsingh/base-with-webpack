@@ -1,6 +1,7 @@
+@import '../../assets/css/variables.scss';
 .contact-us-block {
   p {
-    color: #fff;
+    color: $color-white;
     font-size: 0.875rem;
     margin-bottom: 0;
   }
@@ -12,15 +13,15 @@
     border-radius: 0;
     box-shadow: none;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $md - 1) {
     .form-border {
-      border: 1px solid #ccc;
+      border: 1px solid $color-gray;
       padding: 10px;
       margin: 10px;
     }
   }
   .form-control {
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: $md - 1) {
       margin-bottom: 15px;
     }
     & + label {
@@ -38,9 +39,9 @@
     & + label {
       left: 0px;
     }
-    &:focus {
+    /* &:focus {
       height: 150px;
-    }
+    } */
   }
   .btn {
     font-family: 'Montserrat', sans-serif;
@@ -56,19 +57,19 @@
   }
   .form-control {
     background-color: transparent;
-    color: #fff;
+    color: $color-white;
     &:focus,
     &:-internal-autofill-selected {
       background-color: transparent;
-      color: #fff;
+      color: $color-white;
     }
   }
   .btn {
-    background-color: #fff;
+    background-color: $color-white;
   }
   input.form-control:not([value=""]):not(:focus) {
     background-color: transparent;
-    color: #fff;
+    color: $color-white;
   }
   .form-control.active + label,
   .form-control:focus + label,
@@ -78,7 +79,7 @@
     left: 5px;
     font-size: 12px;
     transform: translateY(-14px) scale(.8);
-    color: #ffffff;
+    color: $color-white;
   }
   .fileinputs {
     position: relative;

@@ -1,7 +1,12 @@
+@import '../../assets/css/variables.scss';
 section.page-section {
-  background-color: rgb(239, 239, 239);;
+  background-color: $color-gray-light;
   padding-top: 80px;
   padding-bottom: 80px;
+  @media screen and (max-width: $md - 1) {
+    padding-top: 40px;
+    padding-bottom: 40px;  
+  }
   .h2-head-sec {
     font-size: 24px;
     font-weight: 400;
@@ -20,18 +25,18 @@ section.page-section {
   .brdr {
     width: 60px;
     height: 3px;
-    background-color: #f38181;
+    background-color: $us-Pink-Glamour;
     border-radius: 50px;
     margin-top: 0;
   }
   .sec-para {
     font-size: 15px;
     line-height: 24px;
-    color: #999999;
+    color: $color-gray-dark;
     font-weight: 400;
     text-align: center;
     margin: auto;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $md - 1) {
       text-align: justify;
     }
   }
@@ -40,13 +45,14 @@ section.page-section {
     & + .card-group {
       padding-top: 40px;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $md - 1) {
+      padding-top: 40px;
       & + .card-group {
         padding-top: 0;
       }
     }
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $md) {
     .two-card {
       max-width: 60%;
       margin: 0 auto;
@@ -56,12 +62,15 @@ section.page-section {
     position: relative;
     top: 80px;
     margin: 0 20%;
+    @media screen and (max-width: $md - 1) {
+      top: 40px;
+    }
   }
   &.base-footer {
-    background-color: rgb(55, 71, 79);
-    color: #fff;
+    background-color: $color-base-footer;
+    color: $color-white;
     .sec-para {
-      color: #fff;
+      color: $color-white;
     }
   }
   .map-section {

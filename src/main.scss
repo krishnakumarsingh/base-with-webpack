@@ -1,3 +1,4 @@
+@import '../../assets/css/variables.scss';
 @import "~bootstrap/scss/bootstrap";
 @import "../../assets/css/custom.scss";
 @font-face {
@@ -36,7 +37,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: $color-white;
 }
 a {
   color: #F1C050;
@@ -52,5 +53,5 @@ html {
 input:-internal-autofill-selected,
 input:-webkit-autofill {
   background-color: transparent !important;
-  color: #fff !important;
+  color: $color-white !important;
 }

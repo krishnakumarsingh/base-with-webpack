@@ -1,3 +1,4 @@
+@import './variables.scss';
 #formatics {
   @mixin on-circle($item-count, $circle-size, $item-size, $translate-size) {  
     position: relative;
@@ -21,7 +22,7 @@
       border: 1px solid;
       border-radius: 50%;
       padding: 2.2em 0em;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: $md - 1) {
         margin: -3.2em;
         padding: 2em 0em;
       }
@@ -57,12 +58,12 @@
     margin: auto;
     position: relative;
     .circle-container-buying-center {
-      border-color: #fff;
+      border-color: $color-white;
       border-style: solid;
       margin: auto;
       display: table;
       @include on-circle($item-count: 7, $circle-size: 16em, $item-size: 7.3em, $translate-size: 11em);
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: $md - 1) {
         @include on-circle($item-count: 7, $circle-size: 14em, $item-size: 6em, $translate-size: 10em);
       }
       &:after {
@@ -72,8 +73,8 @@
         left: 28%;
         display: table-cell;
         vertical-align: middle;
-        color: #fff;
-        @media screen and (min-width: 768px) {
+        color: $color-white;
+        @media screen and (min-width: $md) {
           font-size: 22px;
         }
       }
@@ -81,49 +82,49 @@
         width: 6.3em;
         height: 6.3em;
         font-size: 12px;
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $md) {
           font-size: 12px;
         }
       }
       li {
-        color: #fff;
+        color: $color-white;
         &:nth-of-type(1) {
-          background: #EAB543;
+          background: $Honey-Glow;
         }
         &:nth-of-type(2) {
-          background: #FC427B;
+          background: $Sasquatch-Socks;
         }
         &:nth-of-type(3) {
-          background: #25CCF7;
+          background: $Spiro-Disco-Ball;
         }
         &:nth-of-type(4) {
-          background: #6D214F;
+          background: $Magenta-Purple;
         }
         &:nth-of-type(5) {
-          background: #55E6C1;
+          background: $Sweet-Garden;
         }
         &:nth-of-type(6) {
-          background: #182C61;
+          background: $Ending-Navy-Blue;
         }
         &:nth-of-type(7 ) {
-          background: #F97F51;
+          background: $Rich-Gardenia;
         }
       }
     }
   }
   .carousel-item {
     &.slider-0 {
-      background-color: #013A6B;
-      background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
-      background-image: -ms-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
-      background-image: -o-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
-      background-image: linear-gradient(53deg, #013A6B 50%, #004E95 50%);
+      background-color: $slider1-color1;
+      background-image: -webkit-linear-gradient(30deg, $slider1-color1 50%, $slider1-color2 50%);
+      background-image: -ms-linear-gradient(30deg, $slider1-color1 50%, $slider1-color2 50%);
+      background-image: -o-linear-gradient(30deg, $slider1-color1 50%, $slider1-color2 50%);
+      background-image: linear-gradient(53deg, $slider1-color1 50%, $slider1-color2 50%);
     }
     &.parallax {
       &.slider-1 {
         background-image: url(../../assets/images/data-graph.jpg);
         background-position: 0 20%;
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: $md - 1) {
           .base-table-cell .container .row > div {
             vertical-align: bottom;
             display: table-cell;
@@ -136,16 +137,16 @@
         .base-section-btn {
           text-align: left;
         }
-      }
-      @media screen and (max-width: 767px) {
-        background-position: 60% 10%;
-        &.active {
-          display: table;
+        @media screen and (max-width: $md - 1) {
+          background-position: 60% 10%;
+          &.active {
+            display: table;
+          }
         }
       }
       .base-section-lead {
         margin-top: 0em;
-        color: #ffffff;
+        color: $color-white;
         text-align: left;
         font-weight: 700;
         font-size: 24px;
@@ -154,10 +155,10 @@
     }
     &.parallax {
       &.slider-2 {
-        background-image: -webkit-linear-gradient(30deg, rgb(174, 190, 203) 50%, rgb(148, 148, 149) 50%);
-        background-image: -ms-linear-gradient(30deg, rgb(174, 190, 203) 50%, rgb(148, 148, 149) 50%);
-        background-image: -o-linear-gradient(30deg, rgb(174, 190, 203) 50%, rgb(148, 148, 149) 50%);
-        background-image: linear-gradient(53deg, rgb(174, 190, 203) 50%, rgb(148, 148, 149) 50%);
+        background-image: -webkit-linear-gradient(30deg, $slider3-color1 50%, $slider3-color2 50%);
+        background-image: -ms-linear-gradient(30deg, $slider3-color1 50%, $slider3-color2 50%);
+        background-image: -o-linear-gradient(30deg, $slider3-color1 50%, $slider3-color2 50%);
+        background-image: linear-gradient(53deg, $slider3-color1 50%, $slider3-color2 50%);
         &.carousel-item .base-table-cell .container .row {
           display: table;
           width: 100%;
@@ -213,7 +214,7 @@
       &.active {
         .slider-responsive {
           display: block;
-          @media screen and (min-width: 992px) {
+          @media screen and (min-width: $lg) {
             width: 75%;
             margin: auto;
           }
