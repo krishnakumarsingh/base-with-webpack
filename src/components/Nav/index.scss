@@ -132,8 +132,9 @@
 @media screen and (max-width: $md - 1) {
   .navbar {
     padding: 0rem 1rem;
-  }
-  .navbar-brand {
-    height: 40px;
+    .navbar-brand {
+      /* height: 40px; */
+      padding: 10px 0;
+    }
   }
 }

@@ -237,6 +237,32 @@
       }
     }
   }
+  #wePartners {
+    &.card-transparent .card-group {
+      padding-top: 40px;
+      .card {
+        /* background: transparent; */
+        border: 0;
+        box-shadow: 1px 1px 2px 0px #0000004d;
+        &.konnect {
+          /* background: #ccc; */
+        }
+        &.essentity {
+          background: #212b32;
+          img {
+            padding-top: 35px;
+          }
+        }
+        &.zealinc {
+
+        }
+        img {
+          height: auto;
+          padding: 15px 20px;
+        }
+      }
+    }
+  }
   @keyframes responsive-ipad-img {
     0%, 8.3% { right: -100%; opacity: 0; }
     8.3%, 20% { right: -100%; opacity: 1; }

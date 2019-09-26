@@ -1,16 +1,17 @@
 {
   "pageConfig": {
-    "websiteAppClass": "formatics"
+    "websiteAppClass": "formatics",
+    "apiKey": "AIzaSyCtvPRlQ4502OUC-bQVr5mTdcM1W1O5wN8"
   },
   "navBarList": {
     "logged_in":true,
     "nav_theme": "",
     "logo": {
       "logoText": "Logo",
-      "logoSrc": "logo.png",
+      "logoSrc": "2formatics-h.png",
       "logoHref": "/",
       "logoAlt": "Logo Alt",
-      "logoImg": false,
+      "logoImg": true,
       "samePage": false
     },
     "navList": [
@@ -117,6 +118,24 @@
             "href": "/websiteDevelopment", "text": "Website Development", "alt": "item alt", "src": "website-development.jpg"
           }
         ]
+      }, {
+        "id": "wePartners",
+        "classItem": "card-transparent",
+        "imgItemShow": "3",
+        "map": false,
+        "h2": "We Partner with ..",
+        "h3": "Companies",
+        "grid": [12, 12],
+        "para": [],
+        "btn": ["LEARN MORE", "/getBuyingCenterInsight"],
+        "imageCardAble": true,
+        "imageCard": [{
+            "target": "_blank", "exHref": "http://www.konnectgroupmedia.com/", "alt": "konnectgroupmedia", "src": "konnect-group-media.png", "classItem": "konnect"
+          }, {
+            "target": "_blank", "exHref": "https://www.b2binformatics.com/", "alt": "b2binformatics", "src": "essentity.png", "classItem": "essentity"
+          }, {
+            "target": "_blank", "exHref": "http://www.zealinc.us/", "alt": "zealinc", "src": "zealinc.png", "classItem": "zealinc"
+          }]
       }, {
         "id": "contactus",
         "classItem": "base-footer",

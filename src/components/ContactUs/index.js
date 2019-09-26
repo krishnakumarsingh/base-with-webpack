@@ -71,6 +71,7 @@ class ContactUs extends Component {
               <div className="pb-2">
                 <p className="Roboto font-weight-bold">Contacts</p>
                 <p>Email: info@2formatics.com<br/></p>
+                <p>GSTIN: 29AABCZ3559M1ZL<br/></p>
                 <p>Phone: +91 974 3155 846</p><br/>
               </div>
               <div className="pb-2">
