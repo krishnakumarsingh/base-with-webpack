@@ -19,6 +19,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     const {
+      pageConfig,
       navBarList,
       homeContent,
       aboutContent,
@@ -31,6 +32,7 @@ class App extends Component {
       websiteDevelopment,
     } = dataJson;
     this.state = {
+      pageConfig: pageConfig,
       navBarList: navBarList,
       homeContent: homeContent,
       aboutContent: aboutContent,
@@ -52,6 +54,7 @@ class App extends Component {
   }
   render() {
     const {
+      pageConfig,
       navBarList,
       homeContent,
       aboutContent,
@@ -64,7 +67,7 @@ class App extends Component {
       websiteDevelopment
     } = this.state;
     return (
-      <div className="App">
+      <div className={`App`} id={`${pageConfig.websiteAppClass}`}>
         <Router /* history={browserHistory} */>
           <Nav navBarList={navBarList} navClassName="navbar-dropdown navbar-fixed-top" />
           <Route

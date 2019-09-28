@@ -1,9 +1,13 @@
 {
+  "pageConfig": {
+    "websiteAppClass": "formatics",
+    "apiKey": "AIzaSyCtvPRlQ4502OUC-bQVr5mTdcM1W1O5wN8"
+  },
   "navBarList": {
     "logged_in":true,
     "nav_theme": "",
     "logo": {
-      "logoText": "Logo Text",
+      "logoText": "Logo",
       "logoSrc": "2formatics-h.png",
       "logoHref": "/",
       "logoAlt": "Logo Alt",
@@ -115,6 +119,24 @@
           }
         ]
       }, {
+        "id": "wePartners",
+        "classItem": "card-transparent",
+        "imgItemShow": "3",
+        "map": false,
+        "h2": "We Partner with ..",
+        "h3": "Companies",
+        "grid": [12, 12],
+        "para": [],
+        "btn": ["LEARN MORE", "/getBuyingCenterInsight"],
+        "imageCardAble": true,
+        "imageCard": [{
+            "target": "_blank", "exHref": "http://www.konnectgroupmedia.com/", "alt": "konnectgroupmedia", "src": "konnect-group-media.png", "classItem": "konnect"
+          }, {
+            "target": "_blank", "exHref": "https://www.b2binformatics.com/", "alt": "b2binformatics", "src": "essentity.png", "classItem": "essentity"
+          }, {
+            "target": "_blank", "exHref": "http://www.zealinc.us/", "alt": "zealinc", "src": "zealinc.png", "classItem": "zealinc"
+          }]
+      }, {
         "id": "contactus",
         "classItem": "base-footer",
         "imgItemShow": "",
@@ -181,6 +203,7 @@
   "headerContent": {
     "slider": [
       {
+        "carouselItemClass": "buying-center",
         "title": "Buying Center ?",
         "grid": [6, 6],
         "lead": "",
@@ -213,6 +236,7 @@
         "secDivClass": "",
         "sliderImg": "-webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%)"
       }, {
+        "carouselItemClass": "data-quality",
         "title": "Data Quality ?",
         "grid": [6, 6],
         "lead": "While many organizations boast of having good data or improving the quality of their data, we believe customer's data should be properly oriented, shorted & simplified.",
@@ -224,6 +248,7 @@
         "secDivClass": "",
         "sliderImg": "-webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%)"
       }, {
+        "carouselItemClass": "web-development",
         "title": "Web Development",
         "grid": [12, 12],
         "lead": "",
