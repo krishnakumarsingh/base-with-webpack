@@ -37,6 +37,7 @@
       transition: all 0.45s ease-in-out;
       @media (max-width: $md - 1) {
         width: 216px;
+        padding: 5px 0;
       }
     }
   }
