@@ -81,6 +81,49 @@ section.page-section {
       overflow: hidden;
     }
   }
+  &.counter-pad {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .items-count{
+    background-color: #14add5;
+    height: auto;
+    &__row {
+      display: table;
+      @media screen and (max-width: $md - 1) {
+        padding: 0;
+      }
+      /* margin-top: 50px;
+      margin-bottom: -81px; */
+      &-count,
+      &-text {
+        text-align: center;
+      }
+      &-count {
+        margin-top: 18px;
+        color: #002b5a;
+        @media screen and (max-width: $md - 1) {
+          padding: 0 12px;
+        }
+        @media screen and (max-width: $md - 1) {
+          font-size: 18px;
+        }
+      }
+      &-text {
+        color: #ffffff;
+        @media screen and (max-width: $md - 1) {
+          font-size: 12px;
+        }
+      }
+    }
+    &__col {
+      display: table-cell;
+      border-right: 1px solid;
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
 }
 .base-contact {
   padding-top: 80px;

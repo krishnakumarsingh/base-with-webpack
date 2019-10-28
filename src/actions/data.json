@@ -1,7 +1,6 @@
 {
   "pageConfig": {
-    "websiteAppClass": "formatics",
-    "apiKey": "AIzaSyCtvPRlQ4502OUC-bQVr5mTdcM1W1O5wN8"
+    "websiteAppClass": "formatics"
   },
   "navBarList": {
     "logged_in":true,
@@ -129,6 +128,7 @@
         "para": [],
         "btn": ["LEARN MORE", "/getBuyingCenterInsight"],
         "imageCardAble": true,
+        "counter": true,
         "imageCard": [{
             "target": "_blank", "exHref": "http://www.konnectgroupmedia.com/", "alt": "konnectgroupmedia", "src": "konnect-group-media.png", "classItem": "konnect"
           }, {
@@ -137,10 +137,26 @@
             "target": "_blank", "exHref": "http://www.zealinc.us/", "alt": "zealinc", "src": "zealinc.png", "classItem": "zealinc"
           }]
       }, {
+        "id": "counter",
+        "classItem": "counter-pad",
+        "imgItemShow": "",
+        "map": false,
+        "h2": "",
+        "h3": "",
+        "grid": [12, 12],
+        "para": [],
+        "btn": ["LEARN MORE", "/getBuyingCenterInsight"],
+        "imageCardAble": false,
+        "counter": true,
+        "imageCard": [],
+        "childHtml": "<div class='items-count'><div class='items-count__row container'><div class='items-count__col'><h2 class='items-count__row-count'><span data-val='12000'>12000</span>+</h2><h5 class='items-count__row-text'>Competitive Installation</h5></div><div class='items-count__col'><h2 class='items-count__row-count'><span data-val='50'>50</span>M+</h2><h5 class='items-count__row-text'>Data Strength</h5></div><div class='items-count__col'><h2 class='items-count__row-count'>Worldwide</h2><h5 class='items-count__row-text'>DB Coverage</h5></div><div class='items-count__col'><h2 class='items-count__row-count'><span data-val='25'>25</span>M+</h2><h5 class='items-count__row-text'>TechDB</h5></div></div></div>",
+        "hrHide": true
+      }, {
         "id": "contactus",
         "classItem": "base-footer",
         "imgItemShow": "",
         "map": true,
+        "apiKey": "AIzaSyCtvPRlQ4502OUC-bQVr5mTdcM1W1O5wN8",
         "h2": "We are here for helping you . .",
         "h3": "CONTACT FORM",
         "grid": [12, 12],

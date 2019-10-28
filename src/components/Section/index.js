@@ -18,8 +18,54 @@ class Section extends React.Component {
   createMarkup(html) {
     return {__html: html};
   }
+  counterAnimate() {
+    //var $animation_elements = $('.animation-element');
+    var $window = $(window);
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = (window_top_position + window_height);
+
+    var $element = $('.items-count__row-count span');
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+    if ((element_bottom_position >= window_top_position) &&
+        (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view done');
+    }
+    $('.items-count__row-count span.in-view').not('.done').each(function () {
+      var $this = $(this);
+      jQuery({ Counter: () => {
+          if ($this.text() > 1000)
+            return 10000
+          else
+            return 0
+        }
+       }).animate({ Counter: $this.data('val') }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function () {
+          $this.text(
+            () => {
+              if (12000 - 100 < Math.ceil(this.Counter)) return 12000
+              else return Math.ceil(this.Counter)
+            }
+          );
+          $this.addClass('done');
+        }
+      });
+    });
+  }
+  componentDidMount() {
+    var $this = this;
+    $(document).scroll(function() {
+      $this.counterAnimate();
+    });
+  }
   render() {
-    const { id, classItem, h2, h3, para, imageCard, imageCardAble, imgItemShow, map, childHtml, hrHide, childHtmlImg } = this.props.sectionData;
+    const { id, classItem, h2, h3, para, imageCard, imageCardAble, imgItemShow, map, childHtml, hrHide, childHtmlImg, counter } = this.props.sectionData;
     const { mapApiKey, mapZoom, mapStyles, mapCenter } = this.state;
     var groupSize = imgItemShow;
     var ImageCardRow = imageCard.map(function(item, index) {
