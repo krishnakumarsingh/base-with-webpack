@@ -14,9 +14,13 @@ footer {
       vertical-align: middle;
       text-align: center;
       cursor: pointer;
+      width: 30%;
       &.home-list + .home-list + li,
       &.home-list + .home-list + li + li {
         display: none;
+      }
+      &:first-child {
+        width: 10%;
       }
       &:last-child {
         border-right: 0px;
