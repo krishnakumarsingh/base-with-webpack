@@ -118,25 +118,6 @@
           }
         ]
       }, {
-        "id": "wePartners",
-        "classItem": "card-transparent",
-        "imgItemShow": "3",
-        "map": false,
-        "h2": "We Partner with ..",
-        "h3": "Companies",
-        "grid": [12, 12],
-        "para": [],
-        "btn": ["LEARN MORE", "/getBuyingCenterInsight"],
-        "imageCardAble": true,
-        "counter": true,
-        "imageCard": [{
-            "target": "_blank", "exHref": "http://www.konnectgroupmedia.com/", "alt": "konnectgroupmedia", "src": "konnect-group-media.png", "classItem": "konnect"
-          }, {
-            "target": "_blank", "exHref": "https://www.b2binformatics.com/", "alt": "b2binformatics", "src": "essentity.png", "classItem": "essentity"
-          }, {
-            "target": "_blank", "exHref": "http://www.zealinc.us/", "alt": "zealinc", "src": "zealinc.png", "classItem": "zealinc"
-          }]
-      }, {
         "id": "counter",
         "classItem": "counter-pad",
         "imgItemShow": "",
